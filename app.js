@@ -1,6 +1,6 @@
 var textarea = document.querySelector("#text-area");
 var button = document.querySelector("#translate-button");
-var resultText = document.querySelector("#result-text");
+var resultTextArea = document.querySelector("#result-text-area");
 
 button.addEventListener("click", translateClicked);
 
@@ -19,13 +19,17 @@ function translateClicked() {
             console.error('Error', error);
         });
 
-    // updateResultUI(" Hey kya bolti tuuu");
+    // TestResult(" Hey kya bolti tuuu");
 }
 
 function updateResultUI(jsondata) {
 
     const data = JSON.parse(jsondata);
     result = data.contents.translated;
-    resultText.innerText = result;
+    resultTextArea.value = result;
+}
+
+function TestResult(data) {
+    resultTextArea.value = data;
 }
 
