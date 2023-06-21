@@ -9,6 +9,8 @@ function translateClicked() {
     var textQuery = "text=" + textarea.value;
     var queryURL = serverURL + textQuery;
 
+    resultTextArea.value = "minion translating...  beee bop boop.... ";
+
     fetch(queryURL)
         .then(response => response.json())
         .then(data => {
@@ -23,7 +25,6 @@ function translateClicked() {
 }
 
 function updateResultUI(jsondata) {
-
     const data = JSON.parse(jsondata);
     result = data.contents.translated;
     resultTextArea.value = result;
